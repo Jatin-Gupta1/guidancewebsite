@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="table.css" />
+</head>
+<body>
+    <style>
+        * {
+            /* Change your font family */
+            font-family: sans-serif;
+        }
+        :root {
+            --green: #ecfaec;
+            --dark-green: #165766;
+            
+            
+          }
+          body{
+            background-color: var(--green);
+          background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+          }
+        
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            width: 89%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            margin-left: auto;
+           margin-right: auto;
+        }
+        
+        .content-table thead tr {
+            background-color:#165766;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+        
+        .content-table tbody tr {
+            border-bottom: 1px solid #165766;
+        }
+        
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #165766;
+        }
+        
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color:#165766;
+        }
+            
+    
+       
+
+    </style>
+    
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Boys Hostel</th>
+                <th>Girls Hostel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A.S.N Bose Hostel</td>
+                <td>Gandhi Smriti Hostel</td>
+            </tr>
+            <tr class="active-row">
+                <td>Aryabhatta Hostel</td>
+                <td>IIT(BHU) Girl's Hostel-1</td>
+            </tr>
+            <tr>
+                <td>C.V. Raman Hostel</td>
+                <td>IIT(BHU) Girl's Hostel-2</td>
+            </tr>
+            <tr class="active-row">
+                <td>Dhanrajgiri Hostel</td>
+               <td>Dr. S.C. De Girl's Hostel</td>
+            </tr>
+          
+            <tr >
+                <td>Dhanrajgiri-2 Hostel</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td >Limdi Hostel</td>
+                
+            </tr>
+            <tr>
+                <td>Morvi Hostel</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td> Rajputana Hostel</td>
+                
+            </tr>
+            <tr>
+                <td>S.Ramanujana Hostel</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>Vishwakarma Hostel</td>
+                
+            </tr>
+            <tr>
+                <td>Vishvesvaraya Hostel</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>Vivekananda Hostel</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>I.I.T. Boys' Hostel(Saluja)</td>
+                
+            </tr>
+           
+        </tbody>
+    </table>
+    
+  
+
+
+
+                            </body>
+</html>

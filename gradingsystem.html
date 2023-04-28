@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="table.css" />
+</head>
+<body>
+    <style>
+        * {
+            /* Change your font family */
+            font-family: sans-serif;
+        }
+        :root {
+            --green: #ecfaec;
+            --dark-green: #165766;
+            
+            
+          }
+          body{
+            background-color: var(--green);
+          background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+          }
+        
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            width: 89%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            margin-left: auto;
+           margin-right: auto;
+        }
+        
+        .content-table thead tr {
+            background-color:#165766;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+        
+        .content-table tbody tr {
+            border-bottom: 1px solid #165766;
+        }
+        
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #165766;
+        }
+        
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color:#165766;
+        }
+            
+    .info{
+       
+        margin-left: 40px;
+        color: var(--dark-green);
+    }
+    .spi{
+        margin-left: 70px;
+        color: var(--dark-green);
+    }
+   
+       
+
+    </style>
+    
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Grade</th>
+                <th>Grade Point</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <td>A*</td>
+                <td>10</td>
+                <td>Outstanding(Extraordinary high level of learning)</td>
+            </tr>
+            <tr class="active-row">
+                <td>A</td>
+                <td>10</td>
+                <td>Excellent</td>
+            </tr>
+          
+            <tr >
+                <td>A-</td>
+                <td>9</td>
+                <td>Very Good</td>
+            </tr>
+            <tr class="active-row">
+                <td>B</td>
+                <td>8</td>
+                <td>Good</td>
+            </tr>
+            <tr>
+                <td>B-</td>
+                <td>7</td>
+                <td> Very Fair</td>
+            </tr>
+            <tr class="active-row">
+                <td>C</td>
+                <td>6</td>
+                <td>Fair</td>
+            </tr>
+            <tr>
+                <td>C-</td>
+                <td>5</td>
+                <td>Poor(But pass grade for Course)</td>
+            </tr>
+            <tr class="active-row">
+                <td>F</td>
+                <td>0</td>
+                <td>Fail(Extremely low level of Learning)</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>---</td>
+                <td>(Research Unit)Unsatisfactory</td>
+            </tr>
+            <tr class="active-row">
+                <td>X</td>
+                <td>---</td>
+                <td>(Research Unit)Satisfactory</td>
+            </tr>
+            <tr>
+                <td>I</td>
+                <td>---</td>
+                <td>Incomplete</td>
+            </tr>
+            <tr class="active-row">
+                <td>T</td>
+                <td>---</td>
+                <td>Waiver/Transfer</td>
+            </tr>
+            <tr>
+                <td>W</td>
+                <td>---</td>
+                <td>Withdrawn/Cancelled Registration</td>
+            </tr>
+        </tbody>
+    </table>
+    
+  <ul class="info">
+    <li>
+      <b> The description of the letter grades from A* to F is self explanatory .</b> 
+        
+    </li>
+    <br>
+    <li class="active-para">
+      <b>'T'&nbsp;will be awarded to those courses or research projects which are waived off for students earning grades and equivalent credits by going to other Institute/university/organization as a Non-Degree Student.</b>  
+      
+    </li>
+    <br>
+    <li>
+      <b> A cancelled Registration would appear as a W-grade in the grade sheet.It will not be considered for SPI/CPI calculation.</b> 
+    </li>
+    <br>
+    <li>
+        <b>If a student fails to fulfil the minimum stipulated attendence criterion,he/she will be deemed to have withdrawn from the course with consequent cancellation of registration.</b>
+    </li>
+    <br>
+    <li>
+       <b> If a student does not complete all the requirements for a course for a genuine reason,the instructor may award the grade I (Incomplete) .An I grade shall be awarded if the student has not appeared in the End-Semester examination.</b>
+    </li>
+    <br>
+    <li>
+      <b>  A student getting an F or X grade in a course must repeat it or replace it(if it is an elective).If the course happens to be an Elective,he/she can substitute the same by another Elective with the permission of the DUGC</b>
+    </li>
+  </ul>
+  
+<h2 class="spi">Semester Performance Index(SPI)</h2>
+<p class="spi"><b>SPI is a weighted average of the grade points obtained by a student in courses and describes his/her academic performance in a semester .If the grade points associated with the letter grades awarded to a student are G1, G2, G3, G4, and G5 in five courses and the corresponding credits and weight factor of courses are (C1 , W1) , (C2 , W2) , (C3 , W3) , (C4 , W4) , (C5 , W5) respectively ,The SPI is given by :- <br><br>
+
+    SPI = (W1*C1*G1) + (W2*C2*G2) + (W3*C3*G3) + (W4*C4*G4) + (W5*C5*G5) / W1*C1 + W2*C2 + W3*C3 + W4*C4 + W5*C5<b> 
+</p>
+
+<h2 class="spi"> Cumulative Performance Index(CPI)</h2>
+
+<p class="spi">CPI indicates the overall academic performance of a student in all the course registered upto and including the latest completed semester.It is computed as SPI,considering all the courses. <br>
+Whenever a student is permitted to repeat or substitue a couse ,the new letter grade replaces the old letter grade in the computation of the CPI,but both the grades appear on his/her Grade Report.
+</p>
+    </body>
+</html>

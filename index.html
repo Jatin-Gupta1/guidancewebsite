@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Responsive Dropdown Navigation Bar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./dropdown.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css"> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+</head>
+<body>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins',sans-serif;
+  
+  }
+  :root {
+    --green: #ecfaec;
+    --dark-green: #165766;
+    
+    
+  }
+ 
+  .section{
+      width: 100%;
+      min-height: 75vh;
+      background-color: rgb(14, 14, 14) ;
+  background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+ 
+  }
+  .container{
+      width: 80%;
+      display: block;
+     margin: auto;
+      padding-top: 70px;
+  
+  }
+  .content-section{
+      float: left;
+      width: 55%;
+  }
+  .image-section{
+      float: right;
+      width: 40%;
+  }
+  .image-section img{
+      width: 100%;
+      height: auto;
+  }
+  .image-section img:hover{
+   
+    cursor: pointer;
+  }
+  
+  .content-section .title{
+      text-transform: uppercase;
+      color: #ff5e14;
+      font-size: 2rem;
+  }
+  .content-section .title:hover{
+ 
+    cursor: pointer;
+  }
+
+  .content-section .content h3:hover{
+
+    cursor: pointer;
+  }
+  .content-section .content p:hover{
+ 
+    
+    cursor: pointer;
+  }
+  .content-section .content h3{
+      margin-top: 20px;
+      color: #ffffff;
+      font-size: 21px;
+  }
+  .content-section .content p{
+      margin-top: 10px;
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #878787;
+  }
+  .content-section .content .button{
+      margin-top: 20px;
+  }
+
+  .content-section .content .button:hover{
+  
+    cursor: pointer;
+  }
+  .content-section .content .button a{
+      background-color: rgb(247, 93, 36);
+      padding: 8px 20px;
+      text-decoration: none;
+      color: #000000;
+      font-size: 25px;
+      letter-spacing: 1px;
+  }
+  
+  .content-section .social{
+      margin:40px 20px;
+  }
+  .content-section .social i{
+      color: #fa2828;
+      font-size: 30px;
+      padding: 0px 10px;
+  }
+  .content-section .social i:hover{
+      color: #3d3d3d;
+  
+  }
+  
+  @media screen and (max-width:1000px){
+      .container{
+          width: 80%;
+          display: block;
+          margin: auto;
+          padding-top: 50px;
+      
+      } 
+      .content-section{
+          float: none;
+          width: 100%;
+          display: block;
+          margin: auto;
+      }
+      .image-section{
+          float: none;
+          width: 100%;
+         
+      }
+      .image-section img{
+          width: 100%;
+          height: auto;
+          display: block;
+          margin: auto;
+          padding-bottom: 20px;
+      }
+      .content-section .title{
+         text-align: center;
+        font-size: 19px;
+  
+      }
+     
+      .content-section .content .button{
+          text-align: center;
+      }
+      .content-section .content .button a{
+          padding: 9px 30px;
+      }
+      .content-section .social{
+          text-align: center;
+      }
+  
+  }
+
+
+
+
+
+
+  Primary style
+
+  -------------------------------- */
+  html * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    *, *:after, *:before {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-size: 100%;
+      font-family: "Droid Serif", serif;
+      color: #7f8c97;
+      background-color: #e9f0f5;
+    }
+    
+    a {
+      color: #acb7c0;
+      text-decoration: none;
+      font-family: "Open Sans", sans-serif;
+    }
+    
+    img {
+      max-width: 100%;
+    }
+    
+    h1, h2 {
+      font-family: "Open Sans", sans-serif;
+      font-weight: bold;
+    }
+    
+    /* -------------------------------- 
+    
+    Modules - reusable parts of our design
+    
+    -------------------------------- */
+   .cd-container {
+      /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+      width: 90%;
+      max-width: 1170px;
+      margin: 0 auto;
+   }
+    .cd-container::after {
+      /* clearfix */
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* -------------------------------- 
+    
+    Main components 
+    
+    -------------------------------- */
+    header {
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+padding-top: 40px;
+    }
+    header h1 {
+      color: #ffffff;
+      
+      font-size: 18px;
+      font-size: 1.7rem;
+      color: #000000;
+    }
+    @media only screen and (min-width: 1200px) {
+      header {
+        height: 100px;
+        line-height: 100px;
+      }
+      header h1 {
+        font-size: 24px;
+        font-size: 1.5rem;
+      }
+    }
+    
+    #cd-timeline {
+      position: relative;
+      padding: 2em 0;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    #cd-timeline::before {
+      /* this is the vertical line */
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 18px;
+      height: 100%;
+      width: 4px;
+      background: #d7e4ed;
+    }
+    @media only screen and (min-width: 1200px) {
+      #cd-timeline {
+        margin-top: 3em;
+        margin-bottom: 3em;
+      }
+      #cd-timeline::before {
+        left: 50%;
+        margin-left: -2px;
+      }
+    }
+    
+    .cd-timeline-block {
+      position: relative;
+      margin: 2em 0;
+    }
+    .cd-timeline-block::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+    .cd-timeline-block:first-child {
+      margin-top: 0;
+    }
+    .cd-timeline-block:last-child {
+      margin-bottom: 0;
+    }
+    @media only screen and (min-width: 1200px) {
+      .cd-timeline-block {
+        margin: 4em 0;
+      }
+      .cd-timeline-block:first-child {
+        margin-top: 0;
+      }
+      .cd-timeline-block:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    .cd-timeline-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    }
+    .cd-timeline-img img {
+      display: block;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      margin-left: -12px;
+      margin-top: -12px;
+    }
+    .cd-timeline-img.cd-picture {
+      background: #da4116;
+    }
+    .cd-timeline-img.cd-movie {
+      background: #da4116;
+    }
+    .cd-timeline-img.cd-location {
+      background: #da4116;
+    }
+    @media only screen and (min-width: 1200px) {
+      .cd-timeline-img {
+        width: 60px;
+        height: 60px;
+        left: 50%;
+        margin-left: -30px;
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+      }
+      .cssanimations .cd-timeline-img.is-hidden {
+        visibility: hidden;
+      }
+      .cssanimations .cd-timeline-img.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-1 0.6s;
+        -moz-animation: cd-bounce-1 0.6s;
+        animation: cd-bounce-1 0.6s;
+      }
+    }
+    
+    @-webkit-keyframes cd-bounce-1 {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(0.5);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: scale(1.2);
+      }
+      100% {
+        -webkit-transform: scale(1);
+      }
+    }
+    @-moz-keyframes cd-bounce-1 {
+      0% {
+        opacity: 0;
+        -moz-transform: scale(0.5);
+      }
+      60% {
+        opacity: 1;
+        -moz-transform: scale(1.2);
+      }
+      100% {
+        -moz-transform: scale(1);
+      }
+    }
+    @keyframes cd-bounce-1 {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        -o-transform: scale(0.5);
+        transform: scale(0.5);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+      100% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+    .cd-timeline-content {
+      position: relative;
+      margin-left: 60px;
+      background: #ffffff;
+      border-radius: 0.25em;
+      padding: 1em;
+      box-shadow: 0 3px 0 #d7e4ed;
+    }
+    .cd-timeline-content::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+    .cd-timeline-content h2 {
+      color: #303e49;
+    }
+    .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+      font-size: 13px;
+      font-size: 0.8125rem;
+    }
+    .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+      display: inline-block;
+    }
+    .cd-timeline-content p {
+      margin: 1em 0;
+      line-height: 1.6;
+    }
+    .cd-timeline-content .cd-read-more {
+      float: right;
+      padding: 0.8em 1em;
+      background: #acb7c0;
+      color: #ffffff;
+      border-radius: 0.25em;
+    }
+    .no-touch .cd-timeline-content .cd-read-more:hover {
+      background-color: #bac4cb;
+    }
+    .cd-timeline-content .cd-date {
+      float: left;
+      padding: 0.8em 0;
+      opacity: 0.7;
+    }
+    .cd-timeline-content::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      right: 100%;
+      height: 0;
+      width: 0;
+      border: 7px solid transparent;
+      border-right: 7px solid #ffffff;
+    }
+    @media only screen and (min-width: 1200px) {
+      .cd-timeline-content h2 {
+        font-size: 20px;
+        font-size: 1.25rem;
+      }
+      .cd-timeline-content p {
+        font-size: 16px;
+        font-size: 1rem;
+      }
+      .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+        font-size: 14px;
+        font-size: 0.875rem;
+      }
+    }
+    @media only screen and (min-width: 1200px) {
+      .cd-timeline-content {
+        margin-left: 0;
+        padding: 1.6em;
+        width: 45%;
+      }
+      .cd-timeline-content::before {
+        top: 24px;
+        left: 100%;
+        border-color: transparent;
+        border-left-color: #ffffff;
+      }
+      .cd-timeline-content .cd-read-more {
+        float: left;
+      }
+      .cd-timeline-content .cd-date {
+        position: absolute;
+        width: 100%;
+        left: 122%;
+        top: 6px;
+        font-size: 16px;
+        font-size: 1rem;
+      }
+      .cd-timeline-block:nth-child(even) .cd-timeline-content {
+        float: right;
+      }
+      .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+        top: 24px;
+        left: auto;
+        right: 100%;
+        border-color: transparent;
+        border-right-color: #ffffff;
+      }
+      .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+        float: right;
+      }
+      .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+        left: auto;
+        right: 122%;
+        text-align: right;
+      }
+      .cssanimations .cd-timeline-content.is-hidden {
+        visibility: hidden;
+      }
+      .cssanimations .cd-timeline-content.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-2 0.6s;
+        -moz-animation: cd-bounce-2 0.6s;
+        animation: cd-bounce-2 0.6s;
+      }
+    }
+    
+    @media only screen and (min-width: 1200px) {
+      /* inverse bounce effect on even content blocks */
+      .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+        -webkit-animation: cd-bounce-2-inverse 0.6s;
+        -moz-animation: cd-bounce-2-inverse 0.6s;
+        animation: cd-bounce-2-inverse 0.6s;
+      }
+    }
+    @-webkit-keyframes cd-bounce-2 {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: translateX(20px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+      }
+    }
+    @-moz-keyframes cd-bounce-2 {
+      0% {
+        opacity: 0;
+        -moz-transform: translateX(-100px);
+      }
+      60% {
+        opacity: 1;
+        -moz-transform: translateX(20px);
+      }
+      100% {
+        -moz-transform: translateX(0);
+      }
+    }
+    @keyframes cd-bounce-2 {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -ms-transform: translateX(-100px);
+        -o-transform: translateX(-100px);
+        transform: translateX(-100px);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        -o-transform: translateX(20px);
+        transform: translateX(20px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+      }
+    }
+    @-webkit-keyframes cd-bounce-2-inverse {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(100px);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: translateX(-20px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+      }
+    }
+    @-moz-keyframes cd-bounce-2-inverse {
+      0% {
+        opacity: 0;
+        -moz-transform: translateX(100px);
+      }
+      60% {
+        opacity: 1;
+        -moz-transform: translateX(-20px);
+      }
+      100% {
+        -moz-transform: translateX(0);
+      }
+    }
+    @keyframes cd-bounce-2-inverse {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateX(100px);
+        -moz-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+        -o-transform: translateX(100px);
+        transform: translateX(100px);
+      }
+      60% {
+        opacity: 1;
+        -webkit-transform: translateX(-20px);
+        -moz-transform: translateX(-20px);
+        -ms-transform: translateX(-20px);
+        -o-transform: translateX(-20px);
+        transform: translateX(-20px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+      }
+    }
+
+
+  
+
+
+    .holder { 
+      background-color:#fff;
+      box-sizing: border-box;
+      border-radius: 4px;
+      box-shadow: 3px 3px rgb(181, 205, 215);
+    width: 30%;
+      height:300px;
+      overflow:hidden;
+      margin: 10px ;
+      
+      
+      font-family:Helvetica;
+    }
+    .iitimage{
+      width:30%;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+    }
+    .iitimage img{
+      height: 300px;
+     
+   }
+    .iitsimage{
+      margin:  10px;
+      width:30%;
+      border: 2px ridge black;
+
+    }
+    .iitsimage img{
+      height :300px;
+     
+    }
+    .abc{
+     
+      display:flex;
+      
+      flex-wrap:wrap;
+      justify-content: center;
+    }
+    .holder .mask {
+      position: relative;
+      left: 0px;
+      top: 10px;
+     height:300px;
+      overflow: hidden;
+    }
+    .holder ul {
+      list-style:none;
+      margin:0;
+      padding:0;
+      position: relative;
+    }
+    .holder ul li {
+      padding:10px 0px;
+    }
+    .holder ul li a {
+      color:darkred;
+      text-decoration:none;
+    }
+  
+    @media screen  and (max-width:760px){
+      .iitimage{
+        display: none;
+        
+      }
+      .iitsimage{
+        display: none;
+      }
+.holder{
+  width: 100%;
+}
+    }
+    
+
+  </style>
+<!-- partial:index.partial.html -->
+
+
+<div class="navigation">
+  <div class="nav-container">
+  
+    <nav>
+      <div class="nav-mobile" ><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="#!">Home</a>
+        </li>
+        <li>
+          <a  href="#">Councils</a>
+          <ul class="nav-dropdown">
+            <li>
+              <a href="./stc.html">Science and Technology Council</a>
+            </li>
+            <li>
+              <a href="./fmc.html">Film and Media Council</a>
+            </li>
+            <li>
+              <a href="./culturalcouncil.html">Cultural Council</a>
+            </li>
+            <li>
+              <a href="./ssc.html">Social Service Council</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#!">Study Material</a>
+          <ul class="nav-dropdown">
+            <li>
+              <a href="./Notes.html">Notes</a>
+            </li>
+            <li>
+              <a href="./tutorial.html">Tutorial</a>
+            </li>
+            <li>
+              <a href="./question.html">Question Paper</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="./syllabus.html">Syllabus</a>
+        </li>
+        <li>
+          <a href="./fests.html">Fests</a>
+        </li>
+        <li>
+          <a href="./pictures.html">Pictures</a>
+        </li>
+        <li>
+          <a href="#!">Other</a>
+          <ul class="nav-dropdown">
+            <li>
+              <a href="./gradingsystem.html">Grading System</a>
+            </li>
+            <li>
+              <a href="#!">Discipline Change</a>
+            </li>
+            <li>
+              <a href="./hostels.html">Hostels</a>
+            </li>
+            <li>
+              <a href="https://itbhuacin-my.sharepoint.com/:b:/g/personal/jatin_gupta_eee22_itbhu_ac_in/EauqT-c1GDBEp9lEW42DBBYBmg0HPg0tk6Zz-UO8OD6Rnw?e=GP8Yea">Map</a>
+            </li>
+          </ul>
+        </li>
+      
+    
+      </ul>
+      
+    </nav>
+  </div>
+</div>
+
+
+
+
+<div class="section">
+  <div class="container">
+      <div class="content-section">
+          <div class="title">
+              <h1>IIT (BHU) Varanasi</h1>
+          </div>
+          
+          <div class="content">
+              <h3> One of the Top Engineering College in India</h3>
+              <br>
+              <p>
+               <b> Large Alumni Network</b>
+                <br>
+               <b>100 years old legacy</b> 
+                <br>
+              <b>Completely Ragging Free</b>  
+
+              </p>
+              <br>
+              <div class="button">
+                  <a href="https://www.iitbhu.ac.in/">Main Website</a>
+              </div>
+          </div>
+          <div class="social">
+              <a href="https://www.facebook.com/pr.iitbhu/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com/IITBHU_Varanasi"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/iitbhu.varanasi/?hl=en"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+      <div class="image-section">
+          <img src="https://feeds.abplive.com/onecms/images/uploaded-images/2022/05/11/90b8355eb1317cb2f4e0c1b8cd5bdce7_original.jpeg?impolicy=abp_cdn&imwidth=650" alt="">
+      </div>
+  </div>
+ </div>
+   
+<!-- partial -->
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="./dropdown.js"></script>
+
+
+
+
+
+  <header>
+		<h1 class="timehead">Timeline IIT (BHU) Varanasi</h1>
+	</header>
+
+	<section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				
+				<p> Banaras Hindu University was established in 1916 by Bharat Ratna Mahamana Pandit Madan Mohan Malviya ji.Prof.Charles KIng was appointed the first Principal and christened the college as "Benares Engineering College(BENCO)".Combined degree in Electrical and Mechanical engineering" was started.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1916-1919</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+		
+				<p>The Depatment of Geology was started under BENCO in 1920.IN 1921 Department of Industrial Chemistry was established.In 1923 courses in Mining and Metallurgy were introduced.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1920s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				
+				<p> In 1930,a chimney was established behind department of Mechanical Engineering.Mahamana's vision laid to the laying of the foundation stone of the campus'Vishwanath Temple'.In 1939 witnessed the formation of college of technology.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1930s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				
+				<p>The main entrance gate and boundary walls of University was built.On 12 Nov,1946,the nation mourned the sad demise of Pandit Madan Mohan Malaviya.1944 witnessed the formation of a separate College of Mining andMetallurgy(MINMET).</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1940s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+			
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+		
+				<p> In 1950s the existing Industrial Chemistry department was reconstituted into a new Department of Chemical Engineering and Technology.The 1950s also saw the establishment of department of civil and Municipal Engineering.
+        </p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1950s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+			
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+		
+				<p> Inthe years 1968-1971,the three colleges(BENCO,MINMETand TECHNO)were merged into one and the Institute of Technology was established.
+        </p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1960s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+    <div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+			
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+		
+				<p>In 1971,the department of Electronics Engineering was established.In 1972 regional admissions were replaced by admissions through the IIT-JEE. 
+         </p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1970s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+
+    <div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+			
+				<p>Student Health Care Complex was established.Separate building for Institute's library was establishedThis was followed by establishment of Department of material science and technology,computer science and engineering.</p>
+        <a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1980s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+
+    <div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+			
+				<p>The establishment of Department of Physics,Mathematical Sciences and Chemistry.the first editions of Kashiyatra and Spardha were held.Biomedical and Biochemical Engineering were also started.
+        </p>
+        <a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">1990s</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+
+    
+
+    
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				
+				<p>Installation of Internet services.Gandhi Technology Alumni Centre was established.ON 29 june 2012,Institute of technology was renamed as Indian Institute of technology (BHU) Varanasi.Lecture theatres were also established .Also various new hostels were eastablished and first edition of FMC Weekend was witnessed.</p>
+				<span class="cd-date">2000 to till now</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+	</section> <!-- cd-timeline -->
+</body>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./timeline.js"></script>
+
+
+
+
+  <div class="abc">
+    <div class="iitsimage">
+      <img src="https://www.jagranimages.com/images/newimg/21032022/21_03_2022-iit_bhu_22560327.jpg" alt="">
+    
+      </div>
+      <div class="iitimage">
+      <img src="https://www.iitbhu.ac.in/contents/iitbhu/img/other/iit_logo_original.png" alt="">
+    
+      </div>
+    
+    <div class="holder">
+      <ul id="ticker01">
+                  <li><span>10/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
+                  <li><span>10/10/2007</span><a href="#">End up doing is adding some code</a></li>
+                  <li><span>10/10/2007</span><a href="#">The code that you want to run</a></li>
+                  <li><span>08/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
+                  <li><span>08/10/2007</span><a href="#">Right when the page is loaded</a></li>
+                  <li><span>05/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
+                  <li><span>04/10/2007</span><a href="#">The first thing that most Javascript programmers</a></li>
+                  <li><span>04/10/2007</span><a href="#">End up doing is adding some code</a></li>
+                  <li><span>04/10/2007</span><a href="#">The code that you want to run</a></li>
+                  <li><span>03/10/2007</span><a href="#">Inside of which is the code that you want to run</a></li>
+                  <li><span>03/10/2007</span><a href="#">Right when the page is loaded</a></li>
+                  <li><span>01/10/2007</span><a href="#">Problematically, however, the Javascript code</a></li>
+            </ul>
+    </div>
+      
+    </div>
+<script src="./ticker.js"></script>
+
+
+
+
+  <footer class="footer-section">
+    <div class="container">
+    <div class="footer-cta pt-5 pb-5">
+    <div class="row">
+    <div class="col-xl-4 col-md-4 mb-30">
+    <div class="single-cta">
+    <i class="fas fa-map-marker-alt"></i>
+    <div class="cta-text">
+        <h4>Find us</h4>
+        <span>Aryabhatta hostel,IIT BHU</span>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-md-4 mb-30">
+    <div class="single-cta">
+    <i class="fas fa-phone"></i>
+    <div class="cta-text">
+        <h4>Call us</h4>
+        <span>7374902994</span> 
+    </div>
+    </div>
+    </div>
+             
+    <div class="col-xl-4 col-md-4 mb-30">
+    <div class="single-cta">
+    <i class="far fa-envelope-open"></i>
+    <div class="cta-text">
+        <h4>Mail us</h4>
+        <span>jatin.gupta.cd.mat22@itbhu.ac.in</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="footer-content pt-5 pb-5">
+    <div class="row">
+    <div class="col-xl-4 col-lg-4 mb-50">
+    <div class="footer-widget">
+    <div class="footer-logo img-fluid">
+         Jatin Gupta
+    </div>
+    <div class="footer-text">
+        <p>Department of Mathematical Sciences
+        <br>
+        IIT (BHU) Varanasi
+        </p>
+    </div>
+                  
+    <div class="footer-social-icon">
+        <span>Follow us</span>
+        <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+        <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+        <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+    <div class="footer-widget">
+    <div class="footer-widget-heading">
+        <h3>Useful Links</h3>
+    </div>
+        <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./Notes.html">Notes</a></li>
+        <li><a href="./tutorial.html">Tutorial</a></li>
+        <li><a href="./fests.html">Fests</a></li>
+        <li><a href="">Map</a></li>
+        <li><a href="./gradingsystem.html">Grading System</a></li>
+        <li><a href="./pictures.html">Pictures</a></li>
+        <li><a href="#">Holidays</a></li>
+        <li><a href="#">Faculties</a></li>
+        <li><a href="#">Library</a></li>
+        </ul>
+    </div>
+    </div>
+             
+    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+    <div class="footer-widget">
+    <div class="footer-widget-heading">
+        <h3>Subscribe</h3>
+    </div>
+    
+    <div class="footer-text mb-25">
+        <p>Don’t miss to subscribe to our new feeds.</p>
+    </div>
+                        
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="copyright-area">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+    <div class="copyright-text">
+        <p>Copyright &copy; 2018, All Right Reserved <a href="https://codepen.io/anupkumar92/">Anup</a></p>
+    </div>
+    </div>
+           
+    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+    <div class="footer-menu">
+        <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Policy</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
